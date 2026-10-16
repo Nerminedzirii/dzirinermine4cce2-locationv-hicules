@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,4 +25,9 @@ public class Contrat {
     LocalDate dateSignature;
     BigDecimal montantTotal;
     boolean valide;
+    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL)
+    Set<Paiement> paiements;
+
+    @OneToOne
+    Reservation reservation;
 }

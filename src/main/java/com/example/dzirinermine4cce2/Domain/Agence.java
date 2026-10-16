@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,4 +24,8 @@ public class Agence {
     String ville;
     String adresse;
     String telephone;
+    @OneToMany(mappedBy = "agence")
+    List<Vehicule> vehicules;
+    @OneToMany(mappedBy = "agence", fetch=FetchType.LAZY)
+    List<Employe>employes;
 }

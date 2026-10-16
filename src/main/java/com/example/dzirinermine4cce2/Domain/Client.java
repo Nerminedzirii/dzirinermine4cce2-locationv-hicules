@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,4 +27,5 @@ public class Client {
     String telephone;
     String numPermis;
     LocalDate dateInscription;
-}
+    @OneToMany(mappedBy= "client" , fetch=FetchType.LAZY)
+    List<Reservation> reservations;}

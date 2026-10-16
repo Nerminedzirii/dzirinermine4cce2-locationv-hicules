@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -19,4 +21,6 @@ public class Equipement {
     long idEquipement;
 
     String libelle;
+    @ManyToMany(mappedBy = "equipements")
+    Set<Vehicule> vehicules;
 }
